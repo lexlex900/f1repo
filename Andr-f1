@@ -1,0 +1,18 @@
+class TestActivity1 : AppCompatActivity() {
+        lateinit var binding: ActivityTest1Binding
+
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+                super.onCreate(savedInstanceState)
+                binding = ActivityTest1Binding.inflate(layoutInflater)
+                setContentView(binding.root)
+
+                val message = intent.getStringExtra("key") // переменная забирает данные из путЕкстра смотря в ключ
+                binding.textView2.text = message // указываем что именно Текст вью будет забирать данные из переменной
+
+        }
+
+        fun onClickBACK (view:View) {
+                intent.putExtra("key",binding.ed)
+                finish()
+        }
